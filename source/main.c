@@ -48,7 +48,7 @@ int exists(const char* path)
 	return lv2FsStat(path, &entry);
 }
 
-int size(const char* file)
+unsigned long long size(const char* file)
 {
 	Lv2FsStat entry;
 	lv2FsStat(file, &entry);
@@ -102,7 +102,7 @@ int main(int argc, const char* argv[])
 	
 	waitFlip();
 	
-	int sizeCG = size("/dev_flash/vsh/resource/explore/xmb/category_game.xml");
+	unsigned long long sizeCG = size("/dev_flash/vsh/resource/explore/xmb/category_game.xml");
 	int OFW = (sizeCG == 24314 || sizeCG == 23830); //check if OFW or CFW
 	
 	showmessage(mdialogyesno, OFW ? "Package Enabler by @Axtux (http://Axtux.tk)\n\nDo you want to enable \"Install package files\" ?" : "Package Enabler by @Axtux (http://Axtux.tk)\n\nDo you want to disable \"Install package files\" ?");
